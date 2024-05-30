@@ -367,4 +367,81 @@ class LinkedListTest {
                 () -> assertEquals(expectedLength, actualLength)
         );
     }
+
+    @Test
+    @DisplayName("Remove first element from a linked list of multiple elements")
+    void should_removeFirstAndReturnNode_when_removeFirstFromLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+
+        Integer expectedRemovedNodeValue = new LinkedList.Node(1).value;
+        Integer expectedHeadValue = new LinkedList.Node(2).value;
+        Integer expectedTailValue = new LinkedList.Node(5).value;
+        int expectedLength = 4;
+
+        LinkedList.Node removeFirst = linkedList.removeFirst();
+
+        Integer actualRemovedNodeValue = removeFirst.value;
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength),
+                () -> assertEquals(expectedRemovedNodeValue, actualRemovedNodeValue)
+        );
+    }
+
+    @Test
+    @DisplayName("Remove first element from a linked list of one element")
+    void should_removeFirstAndReturnNode_when_removeFirstFromLinkedListWithOneElement() {
+        LinkedList linkedList = new LinkedList(123);
+
+        Integer expectedRemovedNodeValue = new LinkedList.Node(123).value;
+        LinkedList.Node expectedHead = null;
+        LinkedList.Node expectedTail = null;
+        int expectedLength = 0;
+
+        LinkedList.Node removeFirst = linkedList.removeFirst();
+
+        Integer actualRemovedNodeValue = removeFirst.value;
+        LinkedList.Node actualHead = linkedList.getHead();
+        LinkedList.Node actualTail = linkedList.getTail();
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength),
+                () -> assertEquals(expectedRemovedNodeValue, actualRemovedNodeValue)
+        );
+    }
+
+    @Test
+    @DisplayName("Remove first element from an empty linked list")
+    void should_removeFirstAndReturnNull_when_removeFirstFromEmptyLinkedList() {
+        LinkedList linkedList = new LinkedList();
+
+        LinkedList.Node expectedRemovedNode = null;
+        LinkedList.Node expectedHead = null;
+        LinkedList.Node expectedTail = null;
+        int expectedLength = 0;
+
+        LinkedList.Node actualRemovedNode = linkedList.removeFirst();
+        LinkedList.Node actualHead = linkedList.getHead();
+        LinkedList.Node actualTail = linkedList.getTail();
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength),
+                () -> assertEquals(expectedRemovedNode, actualRemovedNode)
+        );
+    }
 }

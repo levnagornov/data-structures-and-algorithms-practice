@@ -123,4 +123,22 @@ public class LinkedList {
 
         length++;
     }
+
+    public Node removeFirst() {
+        if (length == 0) {
+            return null;
+        }
+
+        Node temp = head;
+        head = temp.next;
+        temp.next = null;
+        length--;
+
+        if (length == 0) {
+            head = null;
+            tail = null;
+        }
+
+        return temp;
+    }
 }
