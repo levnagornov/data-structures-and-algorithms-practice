@@ -131,4 +131,48 @@ class LinkedListTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("Make empty an empty linked list")
+    void should_makeLinkedListEmpty_when_makeEmptyOfEmptyLinkedList() {
+        LinkedList linkedList = new LinkedList();
+
+        LinkedList.Node expectedHead = null;
+        LinkedList.Node expectedTail = null;
+        int expectedLength = 0;
+
+        linkedList.makeEmpty();
+
+        LinkedList.Node actualHead = linkedList.getHead();
+        LinkedList.Node actualTail = linkedList.getTail();
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Make empty a linked list with one element")
+    void should_makeLinkedListEmpty_when_makeEmptyOfLinkedListWithOneElement() {
+        LinkedList linkedList = new LinkedList(1);
+
+        LinkedList.Node expectedHead = null;
+        LinkedList.Node expectedTail = null;
+        int expectedLength = 0;
+
+        linkedList.makeEmpty();
+
+        LinkedList.Node actualHead = linkedList.getHead();
+        LinkedList.Node actualTail = linkedList.getTail();
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
 }

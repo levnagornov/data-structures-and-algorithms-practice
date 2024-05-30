@@ -65,4 +65,10 @@ public class LinkedList {
             printList();
         }
     }
+
+    public void makeEmpty() {
+        head = null;
+        tail = null;
+        length = 0;
+    }
 }
