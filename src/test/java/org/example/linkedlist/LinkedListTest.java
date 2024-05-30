@@ -296,4 +296,75 @@ class LinkedListTest {
                 () -> assertEquals(expectedRemovedNode, actualRemovedNode)
         );
     }
+
+    @Test
+    @DisplayName("Prepend an element to an empty linked list")
+    void should_prependElement_when_prependToEmptyLinkedList() {
+        LinkedList linkedList = new LinkedList();
+
+        LinkedList.Node prepended = new LinkedList.Node(1);
+        int expectedHead = prepended.value;
+        int expectedTail = prepended.value;
+        int expectedLength = 1;
+
+        linkedList.prepend(1);
+
+        int actualHead = linkedList.getHead().value;
+        int actualTail = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Prepend an element to a linked list with one element")
+    void should_prependElement_when_prependToLinkedListWithOneElement() {
+        LinkedList linkedList = new LinkedList(1);
+
+        int expectedHead = new LinkedList.Node(123).value;
+        int expectedTail = new LinkedList.Node(1).value;
+        int expectedLength = 2;
+
+        linkedList.prepend(123);
+
+        int actualHead = linkedList.getHead().value;
+        int actualTail = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Prepend an element to a linked list with multiple elements")
+    void should_prependElement_when_prependToLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+
+        int expectedHead = new LinkedList.Node(123).value;
+        int expectedTail = new LinkedList.Node(5).value;
+        int expectedLength = 6;
+
+        linkedList.prepend(123);
+
+        int actualHead = linkedList.getHead().value;
+        int actualTail = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
 }
