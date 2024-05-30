@@ -175,4 +175,48 @@ class LinkedListTest {
                 () -> assertEquals(expectedLength, actualLength)
         );
     }
+
+    @Test
+    @DisplayName("Append a new value to a linked list with one element")
+    void should_appendNewValue_when_appendToLinkedListWithOneElement() {
+        LinkedList linkedList = new LinkedList(1);
+
+        Integer expectedHeadValue = new LinkedList.Node(1).value;
+        Integer expectedTailValue = new LinkedList.Node(2).value;
+        int expectedLength = 2;
+
+        linkedList.append(2);
+
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Append a new value to an empty linked list")
+    void should_appendNewValue_when_appendToEmptyLinkedList() {
+        LinkedList linkedList = new LinkedList();
+
+        Integer expectedHeadValue = new LinkedList.Node(123).value;
+        Integer expectedTailValue = new LinkedList.Node(123).value;
+        int expectedLength = 1;
+
+        linkedList.append(123);
+
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
 }
