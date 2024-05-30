@@ -219,4 +219,81 @@ class LinkedListTest {
                 () -> assertEquals(expectedLength, actualLength)
         );
     }
+
+    @Test
+    @DisplayName("Remove last element from a linked list of multiple elements")
+    void should_removeLastAndReturnNode_when_removeLastFromLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+
+        Integer expectedRemovedNodeValue = new LinkedList.Node(5).value;
+        Integer expectedHeadValue = new LinkedList.Node(1).value;
+        Integer expectedTailValue = new LinkedList.Node(4).value;
+        int expectedLength = 4;
+
+        LinkedList.Node removedLast = linkedList.removeLast();
+
+        Integer actualRemovedNodeValue = removedLast.value;
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength),
+                () -> assertEquals(expectedRemovedNodeValue, actualRemovedNodeValue)
+        );
+    }
+
+    @Test
+    @DisplayName("Remove last element from a linked list of one element")
+    void should_removeLastAndReturnNode_when_removeLastFromLinkedListWithOneElement() {
+        LinkedList linkedList = new LinkedList(1);
+
+        Integer expectedRemovedNodeValue = new LinkedList.Node(1).value;
+        LinkedList.Node expectedHead = null;
+        LinkedList.Node expectedTail = null;
+        int expectedLength = 0;
+
+        LinkedList.Node removedLast = linkedList.removeLast();
+
+        Integer actualRemovedNodeValue = removedLast.value;
+        LinkedList.Node actualHead = linkedList.getHead();
+        LinkedList.Node actualTail = linkedList.getTail();
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength),
+                () -> assertEquals(expectedRemovedNodeValue, actualRemovedNodeValue)
+        );
+    }
+
+    @Test
+    @DisplayName("Remove last element from an empty linked list")
+    void should_removeLastAndReturnNull_when_removeLastFromEmptyLinkedList() {
+        LinkedList linkedList = new LinkedList();
+
+        LinkedList.Node expectedRemovedNode = null;
+        LinkedList.Node expectedHead = null;
+        LinkedList.Node expectedTail = null;
+        int expectedLength = 0;
+
+        LinkedList.Node actualRemovedNode = linkedList.removeLast();
+        LinkedList.Node actualHead = linkedList.getHead();
+        LinkedList.Node actualTail = linkedList.getTail();
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength),
+                () -> assertEquals(expectedRemovedNode, actualRemovedNode)
+        );
+    }
 }
