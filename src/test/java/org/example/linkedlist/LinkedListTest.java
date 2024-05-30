@@ -15,7 +15,7 @@ class LinkedListTest {
     void should_returnNode_when_getHeadOfLinkedListWithOneElement() {
         LinkedList linkedList = new LinkedList(1);
 
-        Integer expected = linkedList.new Node(1).value;
+        Integer expected = new LinkedList.Node(1).value;
         Integer actual = linkedList.getHead().value;
 
         assertEquals(expected, actual);
@@ -37,7 +37,7 @@ class LinkedListTest {
     void should_returnNode_when_getTailOfLinkedListWithOneElement() {
         LinkedList linkedList = new LinkedList(2);
 
-        int expected = linkedList.new Node(2).value;
+        int expected = new LinkedList.Node(2).value;
         int actual = linkedList.getTail().value;
 
         assertEquals(expected, actual);
