@@ -40,6 +40,7 @@ public class LinkedList {
 
     public void printList() {
         Node temp = head;
+
         while (temp != null) {
             System.out.println(temp.value);
             temp = temp.next;
@@ -54,8 +55,10 @@ public class LinkedList {
             System.out.println("Head: " + head.value);
             System.out.println("Tail: " + tail.value);
         }
+
         System.out.println("Length: " + length);
         System.out.println("\nLinkedList:");
+
         if (length == 0) {
             System.out.println("empty");
         } else {
