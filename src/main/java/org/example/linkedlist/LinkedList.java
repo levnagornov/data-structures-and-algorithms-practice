@@ -141,4 +141,21 @@ public class LinkedList {
 
         return temp;
     }
+
+    public Node get(int index) {
+        if (length == 0 || index < 0 || index >= length) {
+            return null;
+        }
+
+        Node current = head;
+
+        for (int i = 0; i < length; i++) {
+            if (i == index) {
+                break;
+            }
+            current = current.next;
+        }
+
+        return current;
+    }
 }

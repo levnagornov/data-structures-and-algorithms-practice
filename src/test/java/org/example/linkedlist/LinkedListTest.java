@@ -444,4 +444,204 @@ class LinkedListTest {
                 () -> assertEquals(expectedRemovedNode, actualRemovedNode)
         );
     }
+
+    @Test
+    @DisplayName("Get element by valid middle index from a linked list of multiple elements")
+    void should_getElementAndReturnNode_when_getByValidMiddleIndexFromLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 3;
+        Integer expectedGetNodeValue = new LinkedList.Node(4).value;
+        Integer expectedHeadValue = new LinkedList.Node(1).value;
+        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        LinkedList.Node node = linkedList.get(index);
+
+        Integer actualGetNodeValue = node.value;
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Get element by valid start index from a linked list of multiple elements")
+    void should_getElementAndReturnNode_when_getByValidStartIndexFromLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 0;
+        Integer expectedGetNodeValue = new LinkedList.Node(1).value;
+        Integer expectedHeadValue = new LinkedList.Node(1).value;
+        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        LinkedList.Node node = linkedList.get(index);
+
+        Integer actualGetNodeValue = node.value;
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Get element by valid end index from a linked list of multiple elements")
+    void should_getElementAndReturnNode_when_getByValidEndIndexFromLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 5;
+        Integer expectedGetNodeValue = new LinkedList.Node(6).value;
+        Integer expectedHeadValue = new LinkedList.Node(1).value;
+        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        LinkedList.Node node = linkedList.get(index);
+
+        Integer actualGetNodeValue = node.value;
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Get element by invalid positive index from a linked list of multiple elements")
+    void should_getElementAndReturnNull_when_getByInvalidPositiveIndexFromLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 100;
+        LinkedList.Node expectedGetNode = null;
+        Integer expectedHeadValue = new LinkedList.Node(1).value;
+        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedGetNode, actualGetNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Get element by invalid negative index from a linked list of multiple elements")
+    void should_getElementAndReturnNull_when_getByInvalidNegativeIndexFromLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = -100;
+        LinkedList.Node expectedGetNode = null;
+        Integer expectedHeadValue = new LinkedList.Node(1).value;
+        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedGetNode, actualGetNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Get element by zero index from an empty linked list")
+    void should_getElementAndReturnNull_when_getByZeroIndexFromEmptyLinkedList() {
+        LinkedList linkedList = new LinkedList();
+
+        int index = 0;
+        LinkedList.Node expectedGetNode = null;
+        LinkedList.Node expectedHead = null;
+        LinkedList.Node expectedTail = null;
+        int expectedLength = 0;
+
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        LinkedList.Node actualHead = linkedList.getHead();
+        LinkedList.Node actualTail = linkedList.getTail();
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedGetNode, actualGetNode),
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Get element by zero index from a linked list of one element")
+    void should_getElementAndReturnNode_when_getByZeroIndexFromLinkedListWithOneElement() {
+        LinkedList linkedList = new LinkedList(1);
+
+        int index = 0;
+        LinkedList.Node node = new LinkedList.Node(1);
+        Integer expectedGetNodeValue = node.value;
+        Integer expectedHeadValue = node.value;
+        Integer expectedTailValue = node.value;
+        int expectedLength = 1;
+
+        Integer actualGetNodeValue = linkedList.get(index).value;
+        Integer actualHeadValue = linkedList.getHead().value;
+        Integer actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
 }
