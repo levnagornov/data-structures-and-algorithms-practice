@@ -276,7 +276,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Remove last element from an empty linked list")
-    void should_removeLastAndReturnNull_when_removeLastFromEmptyLinkedList() {
+    void should_returnNull_when_removeLastFromEmptyLinkedList() {
         LinkedList linkedList = new LinkedList();
 
         LinkedList.Node expectedRemovedNode = null;
@@ -424,7 +424,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Remove first element from an empty linked list")
-    void should_removeFirstAndReturnNull_when_removeFirstFromEmptyLinkedList() {
+    void should_returnNull_when_removeFirstFromEmptyLinkedList() {
         LinkedList linkedList = new LinkedList();
 
         LinkedList.Node expectedRemovedNode = null;
@@ -447,7 +447,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Get element by valid middle index from a linked list of multiple elements")
-    void should_getElementAndReturnNode_when_getByValidMiddleIndexFromLinkedListWithMultipleElements() {
+    void should_returnNode_when_getByValidMiddleIndexFromLinkedListWithMultipleElements() {
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
         linkedList.append(3);
@@ -478,7 +478,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Get element by valid start index from a linked list of multiple elements")
-    void should_getElementAndReturnNode_when_getByValidStartIndexFromLinkedListWithMultipleElements() {
+    void should_returnNode_when_getByValidStartIndexFromLinkedListWithMultipleElements() {
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
         linkedList.append(3);
@@ -509,7 +509,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Get element by valid end index from a linked list of multiple elements")
-    void should_getElementAndReturnNode_when_getByValidEndIndexFromLinkedListWithMultipleElements() {
+    void should_returnNode_when_getByValidEndIndexFromLinkedListWithMultipleElements() {
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
         linkedList.append(3);
@@ -540,7 +540,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Get element by invalid positive index from a linked list of multiple elements")
-    void should_getElementAndReturnNull_when_getByInvalidPositiveIndexFromLinkedListWithMultipleElements() {
+    void should_returnNull_when_getByInvalidPositiveIndexFromLinkedListWithMultipleElements() {
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
         linkedList.append(3);
@@ -569,7 +569,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Get element by invalid negative index from a linked list of multiple elements")
-    void should_getElementAndReturnNull_when_getByInvalidNegativeIndexFromLinkedListWithMultipleElements() {
+    void should_returnNull_when_getByInvalidNegativeIndexFromLinkedListWithMultipleElements() {
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
         linkedList.append(3);
@@ -598,7 +598,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Get element by zero index from an empty linked list")
-    void should_getElementAndReturnNull_when_getByZeroIndexFromEmptyLinkedList() {
+    void should_returnNull_when_getByZeroIndexFromEmptyLinkedList() {
         LinkedList linkedList = new LinkedList();
 
         int index = 0;
@@ -622,7 +622,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Get element by zero index from a linked list of one element")
-    void should_getElementAndReturnNode_when_getByZeroIndexFromLinkedListWithOneElement() {
+    void should_returnNode_when_getByZeroIndexFromLinkedListWithOneElement() {
         LinkedList linkedList = new LinkedList(1);
 
         int index = 0;
@@ -748,7 +748,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Set value by invalid positive index of a linked list with multiple elements")
-    void should_setValueAndReturnFalse_when_setByInvalidPositiveIndexOfLinkedListWithMultipleElements() {
+    void should_returnFalse_when_setByInvalidPositiveIndexOfLinkedListWithMultipleElements() {
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
         linkedList.append(3);
@@ -781,7 +781,7 @@ class LinkedListTest {
 
     @Test
     @DisplayName("Set value by invalid negative index of a linked list with multiple elements")
-    void should_setValueAndReturnFalse_when_setByInvalidNegativeIndexOfLinkedListWithMultipleElements() {
+    void should_returnFalse_when_setByInvalidNegativeIndexOfLinkedListWithMultipleElements() {
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
         linkedList.append(3);
