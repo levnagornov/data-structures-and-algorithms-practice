@@ -811,4 +811,183 @@ class LinkedListTest {
                 () -> assertEquals(expectedLength, actualLength)
         );
     }
+
+    @Test
+    @DisplayName("Insert node by zero index of a linked list with multiple elements")
+    void should_insertNodeAndReturnTrue_when_insertByZeroIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 0;
+        int value = 999;
+        boolean expectedReturnValue = true;
+        LinkedList.Node node = new LinkedList.Node(value);
+        int expectedGetNodeValue = node.value;
+        int expectedGetNextNodeValue = new LinkedList.Node(1).value;
+        int expectedHeadValue = node.value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 7;
+
+        boolean actualReturnValue = linkedList.insert(index, value);
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        int actualGetNodeValue = actualGetNode.value;
+        int actualGetNextNodeValue = actualGetNode.next.value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedGetNextNodeValue, actualGetNextNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Insert node by middle index of a linked list with multiple elements")
+    void should_insertNodeAndReturnTrue_when_insertByMiddleIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 3;
+        int value = 999;
+        boolean expectedReturnValue = true;
+        int expectedGetNodeValue = new LinkedList.Node(value).value;
+        int expectedGetNextNodeValue = new LinkedList.Node(4).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 7;
+
+        boolean actualReturnValue = linkedList.insert(index, value);
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        int actualGetNodeValue = actualGetNode.value;
+        int actualGetNextNodeValue = actualGetNode.next.value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedGetNextNodeValue, actualGetNextNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Insert node by end index of a linked list with multiple elements")
+    void should_insertNodeAndReturnTrue_when_insertByEndIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 6;
+        int value = 999;
+        boolean expectedReturnValue = true;
+        LinkedList.Node node = new LinkedList.Node(value);
+        int expectedGetNodeValue = node.value;
+        LinkedList.Node expectedGetNextNode = null;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = node.value;
+        int expectedLength = 7;
+
+        boolean actualReturnValue = linkedList.insert(index, value);
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        int actualGetNodeValue = actualGetNode.value;
+        LinkedList.Node actualGetNextNode = actualGetNode.next;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedGetNextNode, actualGetNextNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Insert node by invalid positive index of a linked list with multiple elements")
+    void should_returnFalse_when_insertByInvalidPositiveIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 123;
+        int value = 999;
+        boolean expectedReturnValue = false;
+        LinkedList.Node expectedGetNode = null;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        boolean actualReturnValue = linkedList.insert(index, value);
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNode, actualGetNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Insert node by invalid negative index of a linked list with multiple elements")
+    void should_returnFalse_when_insertByInvalidNegativeIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = -123;
+        int value = 999;
+        boolean expectedReturnValue = false;
+        LinkedList.Node expectedGetNode = null;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        boolean actualReturnValue = linkedList.insert(index, value);
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNode, actualGetNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
 }
