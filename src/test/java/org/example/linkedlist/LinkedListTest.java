@@ -15,8 +15,8 @@ class LinkedListTest {
     void should_returnNode_when_getHeadOfLinkedListWithOneElement() {
         LinkedList linkedList = new LinkedList(1);
 
-        Integer expected = new LinkedList.Node(1).value;
-        Integer actual = linkedList.getHead().value;
+        int expected = new LinkedList.Node(1).value;
+        int actual = linkedList.getHead().value;
 
         assertEquals(expected, actual);
     }
@@ -181,14 +181,14 @@ class LinkedListTest {
     void should_appendNewValue_when_appendToLinkedListWithOneElement() {
         LinkedList linkedList = new LinkedList(1);
 
-        Integer expectedHeadValue = new LinkedList.Node(1).value;
-        Integer expectedTailValue = new LinkedList.Node(2).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(2).value;
         int expectedLength = 2;
 
         linkedList.append(2);
 
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
@@ -203,14 +203,14 @@ class LinkedListTest {
     void should_appendNewValue_when_appendToEmptyLinkedList() {
         LinkedList linkedList = new LinkedList();
 
-        Integer expectedHeadValue = new LinkedList.Node(123).value;
-        Integer expectedTailValue = new LinkedList.Node(123).value;
+        int expectedHeadValue = new LinkedList.Node(123).value;
+        int expectedTailValue = new LinkedList.Node(123).value;
         int expectedLength = 1;
 
         linkedList.append(123);
 
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
@@ -229,16 +229,16 @@ class LinkedListTest {
         linkedList.append(4);
         linkedList.append(5);
 
-        Integer expectedRemovedNodeValue = new LinkedList.Node(5).value;
-        Integer expectedHeadValue = new LinkedList.Node(1).value;
-        Integer expectedTailValue = new LinkedList.Node(4).value;
+        int expectedRemovedNodeValue = new LinkedList.Node(5).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(4).value;
         int expectedLength = 4;
 
         LinkedList.Node removedLast = linkedList.removeLast();
 
-        Integer actualRemovedNodeValue = removedLast.value;
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualRemovedNodeValue = removedLast.value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
@@ -254,14 +254,14 @@ class LinkedListTest {
     void should_removeLastAndReturnNode_when_removeLastFromLinkedListWithOneElement() {
         LinkedList linkedList = new LinkedList(1);
 
-        Integer expectedRemovedNodeValue = new LinkedList.Node(1).value;
+        int expectedRemovedNodeValue = new LinkedList.Node(1).value;
         LinkedList.Node expectedHead = null;
         LinkedList.Node expectedTail = null;
         int expectedLength = 0;
 
         LinkedList.Node removedLast = linkedList.removeLast();
 
-        Integer actualRemovedNodeValue = removedLast.value;
+        int actualRemovedNodeValue = removedLast.value;
         LinkedList.Node actualHead = linkedList.getHead();
         LinkedList.Node actualTail = linkedList.getTail();
         int actualLength = linkedList.getLength();
@@ -377,16 +377,16 @@ class LinkedListTest {
         linkedList.append(4);
         linkedList.append(5);
 
-        Integer expectedRemovedNodeValue = new LinkedList.Node(1).value;
-        Integer expectedHeadValue = new LinkedList.Node(2).value;
-        Integer expectedTailValue = new LinkedList.Node(5).value;
+        int expectedRemovedNodeValue = new LinkedList.Node(1).value;
+        int expectedHeadValue = new LinkedList.Node(2).value;
+        int expectedTailValue = new LinkedList.Node(5).value;
         int expectedLength = 4;
 
         LinkedList.Node removeFirst = linkedList.removeFirst();
 
-        Integer actualRemovedNodeValue = removeFirst.value;
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualRemovedNodeValue = removeFirst.value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
@@ -402,14 +402,14 @@ class LinkedListTest {
     void should_removeFirstAndReturnNode_when_removeFirstFromLinkedListWithOneElement() {
         LinkedList linkedList = new LinkedList(123);
 
-        Integer expectedRemovedNodeValue = new LinkedList.Node(123).value;
+        int expectedRemovedNodeValue = new LinkedList.Node(123).value;
         LinkedList.Node expectedHead = null;
         LinkedList.Node expectedTail = null;
         int expectedLength = 0;
 
         LinkedList.Node removeFirst = linkedList.removeFirst();
 
-        Integer actualRemovedNodeValue = removeFirst.value;
+        int actualRemovedNodeValue = removeFirst.value;
         LinkedList.Node actualHead = linkedList.getHead();
         LinkedList.Node actualTail = linkedList.getTail();
         int actualLength = linkedList.getLength();
@@ -456,16 +456,16 @@ class LinkedListTest {
         linkedList.append(6);
 
         int index = 3;
-        Integer expectedGetNodeValue = new LinkedList.Node(4).value;
-        Integer expectedHeadValue = new LinkedList.Node(1).value;
-        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedGetNodeValue = new LinkedList.Node(4).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
         int expectedLength = 6;
 
         LinkedList.Node node = linkedList.get(index);
 
-        Integer actualGetNodeValue = node.value;
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualGetNodeValue = node.value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
@@ -487,16 +487,16 @@ class LinkedListTest {
         linkedList.append(6);
 
         int index = 0;
-        Integer expectedGetNodeValue = new LinkedList.Node(1).value;
-        Integer expectedHeadValue = new LinkedList.Node(1).value;
-        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedGetNodeValue = new LinkedList.Node(1).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
         int expectedLength = 6;
 
         LinkedList.Node node = linkedList.get(index);
 
-        Integer actualGetNodeValue = node.value;
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualGetNodeValue = node.value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
@@ -518,16 +518,16 @@ class LinkedListTest {
         linkedList.append(6);
 
         int index = 5;
-        Integer expectedGetNodeValue = new LinkedList.Node(6).value;
-        Integer expectedHeadValue = new LinkedList.Node(1).value;
-        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedGetNodeValue = new LinkedList.Node(6).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
         int expectedLength = 6;
 
         LinkedList.Node node = linkedList.get(index);
 
-        Integer actualGetNodeValue = node.value;
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualGetNodeValue = node.value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
@@ -550,13 +550,13 @@ class LinkedListTest {
 
         int index = 100;
         LinkedList.Node expectedGetNode = null;
-        Integer expectedHeadValue = new LinkedList.Node(1).value;
-        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
         int expectedLength = 6;
 
         LinkedList.Node actualGetNode = linkedList.get(index);
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
@@ -579,13 +579,13 @@ class LinkedListTest {
 
         int index = -100;
         LinkedList.Node expectedGetNode = null;
-        Integer expectedHeadValue = new LinkedList.Node(1).value;
-        Integer expectedTailValue = new LinkedList.Node(6).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
         int expectedLength = 6;
 
         LinkedList.Node actualGetNode = linkedList.get(index);
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
@@ -627,14 +627,14 @@ class LinkedListTest {
 
         int index = 0;
         LinkedList.Node node = new LinkedList.Node(1);
-        Integer expectedGetNodeValue = node.value;
-        Integer expectedHeadValue = node.value;
-        Integer expectedTailValue = node.value;
+        int expectedGetNodeValue = node.value;
+        int expectedHeadValue = node.value;
+        int expectedTailValue = node.value;
         int expectedLength = 1;
 
-        Integer actualGetNodeValue = linkedList.get(index).value;
-        Integer actualHeadValue = linkedList.getHead().value;
-        Integer actualTailValue = linkedList.getTail().value;
+        int actualGetNodeValue = linkedList.get(index).value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
         int actualLength = linkedList.getLength();
 
         assertAll(
