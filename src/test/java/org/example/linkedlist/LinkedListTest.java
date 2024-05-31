@@ -644,4 +644,171 @@ class LinkedListTest {
                 () -> assertEquals(expectedLength, actualLength)
         );
     }
+
+    @Test
+    @DisplayName("Set value by zero index of a linked list with multiple elements")
+    void should_setValueAndReturnTrue_when_setByZeroIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 0;
+        int value = 999;
+        boolean expectedReturnValue = true;
+        LinkedList.Node node = new LinkedList.Node(value);
+        int expectedGetNodeValue = node.value;
+        int expectedHeadValue = node.value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        boolean actualReturnValue = linkedList.set(index, value);
+        int actualGetNodeValue = linkedList.get(index).value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Set value by middle index of a linked list with multiple elements")
+    void should_setValueAndReturnTrue_when_setByMiddleIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 3;
+        int value = 999;
+        boolean expectedReturnValue = true;
+        int expectedGetNodeValue = new LinkedList.Node(value).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        boolean actualReturnValue = linkedList.set(index, value);
+        int actualGetNodeValue = linkedList.get(index).value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Set value by end index of a linked list with multiple elements")
+    void should_setValueAndReturnTrue_when_setByEndIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 5;
+        int value = 999;
+        boolean expectedReturnValue = true;
+        LinkedList.Node node = new LinkedList.Node(value);
+        int expectedGetNodeValue = node.value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = node.value;
+        int expectedLength = 6;
+
+        boolean actualReturnValue = linkedList.set(index, value);
+        int actualGetNodeValue = linkedList.get(index).value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNodeValue, actualGetNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Set value by invalid positive index of a linked list with multiple elements")
+    void should_setValueAndReturnFalse_when_setByInvalidPositiveIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 123;
+        int value = 999;
+        boolean expectedReturnValue = false;
+        LinkedList.Node expectedGetNode = null;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        boolean actualReturnValue = linkedList.set(index, value);
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNode, actualGetNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Set value by invalid negative index of a linked list with multiple elements")
+    void should_setValueAndReturnFalse_when_setByInvalidNegativeIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = -123;
+        int value = 999;
+        boolean expectedReturnValue = false;
+        LinkedList.Node expectedGetNode = null;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        boolean actualReturnValue = linkedList.set(index, value);
+        LinkedList.Node actualGetNode = linkedList.get(index);
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedReturnValue, actualReturnValue),
+                () -> assertEquals(expectedGetNode, actualGetNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
 }

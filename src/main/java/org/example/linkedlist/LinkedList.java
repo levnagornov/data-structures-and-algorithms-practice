@@ -158,4 +158,15 @@ public class LinkedList {
 
         return current;
     }
+
+    public boolean set(int index, int value) {
+        if (index < 0 || index >= length) {
+            return false;
+        }
+
+        Node node = get(index);
+        node.value = value;
+
+        return true;
+    }
 }
