@@ -990,4 +990,167 @@ class LinkedListTest {
                 () -> assertEquals(expectedLength, actualLength)
         );
     }
+
+    @Test
+    @DisplayName("Remove node by zero index of a linked list with multiple elements")
+    void should_removeNodeAndReturnNode_when_removeByZeroIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 0;
+        int expectedRemovedNodeValue = new LinkedList.Node(1).value;
+        LinkedList.Node expectedNextofRemovedNode = null;
+        int expectedHeadValue = new LinkedList.Node(2).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 5;
+
+        LinkedList.Node actualRemovedNode = linkedList.remove(index);
+        int actualRemovedNodeValue = actualRemovedNode.value;
+        LinkedList.Node actualNextofRemovedNode = actualRemovedNode.next;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedRemovedNodeValue, actualRemovedNodeValue),
+                () -> assertEquals(expectedNextofRemovedNode, actualNextofRemovedNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Remove node by middle index of a linked list with multiple elements")
+    void should_removeNodeAndReturnNode_when_removeByMiddleIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 3;
+        int expectedRemovedNodeValue = new LinkedList.Node(4).value;
+        LinkedList.Node expectedNextofRemovedNode = null;
+        int expectedNextOfMiddleIndexNodeValue = new LinkedList.Node(5).value;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 5;
+
+        LinkedList.Node actualRemovedNode = linkedList.remove(index);
+        int actualRemovedNodeValue = actualRemovedNode.value;
+        LinkedList.Node actualNextofRemovedNode = actualRemovedNode.next;
+        int actualNextOfMiddleIndexNodeValue = linkedList.get(index).value;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedRemovedNodeValue, actualRemovedNodeValue),
+                () -> assertEquals(expectedNextofRemovedNode, actualNextofRemovedNode),
+                () -> assertEquals(expectedNextOfMiddleIndexNodeValue, actualNextOfMiddleIndexNodeValue),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Remove node by end index of a linked list with multiple elements")
+    void should_removeNodeAndReturnNode_when_removeByEndIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 5;
+        int expectedRemovedNodeValue = new LinkedList.Node(6).value;
+        LinkedList.Node expectedNextofRemovedNode = null;
+        LinkedList.Node expectedNextOfEndIndexNode = null;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(5).value;
+        int expectedLength = 5;
+
+        LinkedList.Node actualRemovedNode = linkedList.remove(index);
+        int actualRemovedNodeValue = actualRemovedNode.value;
+        LinkedList.Node actualNextofRemovedNode = actualRemovedNode.next;
+        LinkedList.Node actualNextOfEndIndexNode = linkedList.getTail().next;
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedRemovedNodeValue, actualRemovedNodeValue),
+                () -> assertEquals(expectedNextofRemovedNode, actualNextofRemovedNode),
+                () -> assertEquals(expectedNextOfEndIndexNode, actualNextOfEndIndexNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Remove node by invalid positive index of a linked list with multiple elements")
+    void should_returnNull_when_removeByInvalidPositiveIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = 123;
+        LinkedList.Node expectedRemovedNode = null;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        LinkedList.Node actualRemovedNode = linkedList.remove(index);
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedRemovedNode, actualRemovedNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Remove node by invalid negative index of a linked list with multiple elements")
+    void should_returnNull_when_removeByInvalidNegativeIndexOfLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        int index = -123;
+        LinkedList.Node expectedRemovedNode = null;
+        int expectedHeadValue = new LinkedList.Node(1).value;
+        int expectedTailValue = new LinkedList.Node(6).value;
+        int expectedLength = 6;
+
+        LinkedList.Node actualRemovedNode = linkedList.remove(index);
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedRemovedNode, actualRemovedNode),
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
 }
