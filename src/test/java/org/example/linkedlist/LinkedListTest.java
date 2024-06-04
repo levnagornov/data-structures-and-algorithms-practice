@@ -1153,4 +1153,84 @@ class LinkedListTest {
                 () -> assertEquals(expectedLength, actualLength)
         );
     }
+
+    @Test
+    @DisplayName("Reverse a linked list with multiple elements")
+    void should_reverseList_when_reverseLinkedListWithMultipleElements() {
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+
+        LinkedList expectedLinkedList = new LinkedList(6);
+        expectedLinkedList.append(5);
+        expectedLinkedList.append(4);
+        expectedLinkedList.append(3);
+        expectedLinkedList.append(2);
+        expectedLinkedList.append(1);
+        int expectedHeadValue = new LinkedList.Node(6).value;
+        int expectedTailValue = new LinkedList.Node(1).value;
+        int expectedLength = 6;
+
+        linkedList.reverse();
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+        for (int i = 0; i < linkedList.getLength(); i++) {
+            int expectedValue = expectedLinkedList.get(i).value;
+            int actualValue = linkedList.get(i).value;
+            assertEquals(expectedValue, actualValue);
+        }
+    }
+
+    @Test
+    @DisplayName("Reverse a linked list of one element")
+    void should_doNothing_when_reverseLinkedListOfOneElement() {
+        LinkedList linkedList = new LinkedList(123);
+
+        LinkedList.Node node = new LinkedList.Node(123);
+        int expectedHeadValue = node.value;
+        int expectedTailValue = node.value;
+        int expectedLength = 1;
+
+        linkedList.reverse();
+        int actualHeadValue = linkedList.getHead().value;
+        int actualTailValue = linkedList.getTail().value;
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHeadValue, actualHeadValue),
+                () -> assertEquals(expectedTailValue, actualTailValue),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
+
+    @Test
+    @DisplayName("Reverse an empty linked list")
+    void should_doNothing_when_reverseEmptyLinkedList() {
+        LinkedList linkedList = new LinkedList();
+
+        LinkedList.Node expectedHead = null;
+        LinkedList.Node expectedTail = null;
+        int expectedLength = 0;
+
+        linkedList.reverse();
+        LinkedList.Node actualHead = linkedList.getHead();
+        LinkedList.Node actualTail = linkedList.getTail();
+        int actualLength = linkedList.getLength();
+
+        assertAll(
+                () -> assertEquals(expectedHead, actualHead),
+                () -> assertEquals(expectedTail, actualTail),
+                () -> assertEquals(expectedLength, actualLength)
+        );
+    }
 }

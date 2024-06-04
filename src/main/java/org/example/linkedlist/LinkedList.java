@@ -215,4 +215,28 @@ public class LinkedList {
 
         return temp;
     }
+
+    public void reverse() {
+        if (length <= 1) {
+            return;
+        }
+
+        // swap Head and Tail
+        Node temp = head;
+        head = tail;
+        tail = temp;
+
+        // use 3 pointers technique: before, temp (current), after
+        // before   temp   after
+        //  null     e1  ->  e2  ->  e3  -> ...
+        Node before = null;
+        Node after;
+
+        for (int i = 0; i < length; i++) {
+            after = temp.next;  // move pointer
+            temp.next = before; // redirect the link in the opposite direction
+            before = temp;      // move pointer
+            temp = after;       // move pointer
+        }
+    }
 }
