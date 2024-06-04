@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>data-structure-and-algorithms-practice</artifactId>
+    <artifactId>data-structures-and-algorithms-practice</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
