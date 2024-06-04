@@ -1,5 +1,8 @@
 package org.example.linkedlist;
 
+/**
+ * My version of a simple Linked list
+ */
 public class LinkedList {
     private Node head;
     private Node tail;
